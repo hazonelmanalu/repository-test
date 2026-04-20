@@ -9,7 +9,7 @@ def bad_prediction():
     elif rng == 13:
         return "SHALL THE UNFORTUNATE THINGS HAPPEN TO YOU!"
     elif rng == 4:
-        return 
+        return "SHI! DIE! DEATH! ALL OF THEM SHALL HAPPEN TO YOU!"
     else: pass
 
 def good_prediction():
