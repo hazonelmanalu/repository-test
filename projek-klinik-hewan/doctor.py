@@ -21,36 +21,36 @@ class Doctor:
 
         if self.name != doctor_name_input:
             self.name = doctor_name_input
-        elif self.name == self.name:
-            print("Name input is the same with old name")
+        elif self.name == doctor_name_input:
+            print("Name input is the same with the old name")
         else:
             print("Error! Input is invalid!")
 
         if self.doctor_ID != doctor_ID_input:
             self.doctor_ID = doctor_ID_input
-        elif self.doctor_ID == self.doctor_ID:
-            print("ID input is the same with old ID!")
+        elif self.doctor_ID == doctor_ID_input:
+            print("ID input is the same with the old ID!")
         else:
             print("Error! Input is invalid!")
 
-        if self.gender != self.gender:
+        if self.gender != doctor_gender_input:
             self.gender = doctor_gender_input
-        elif self.gender == self.gender:
-            print("Gender input is the same with old gender!")
+        elif self.gender == doctor_gender_input:
+            print("Gender input is the same with the old gender!")
         else:
             print("Error! Input is invalid!")
 
-        if self.specialty != self.specialty:
+        if self.specialty != doctor_specialty_input:
             self.specialty = doctor_specialty_input
-        elif self.specialty == self.specialty:
-            print("Field specialty input is the same with old field specialty!")
+        elif self.specialty == doctor_specialty_input:
+            print("Field specialty input is the same with the old field specialty!")
         else:
             print("Error! Input is invalid!")
 
-        if self.tariff != self.tariff:
+        if self.tariff != doctor_tariff_input:
             self.tariff = doctor_tariff_input
-        elif self.tariff == self.tariff:
-            print("Tariff input is the same with old tariff!")
+        elif self.tariff == doctor_tariff_input:
+            print("Tariff input is the same with the old tariff!")
         else:
             print("Error! Input is invalid!")
     
