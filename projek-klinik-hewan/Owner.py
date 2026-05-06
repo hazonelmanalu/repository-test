@@ -17,6 +17,6 @@ class Owner:
         self.gender = input("Enter new gender: ")
         self.contact = input("Enter new contact: ")
     def set_pet(self, OwnedPet):
-        self.daftarHewan.append(OwnedPet)
+        self.OwnedPet = OwnedPet
     def delete_pet(self, OwnedPet):
-        self.daftarHewan.remove(OwnedPet)
+            self.OwnedPet = None
