@@ -1,5 +1,6 @@
 class Pet:
     pet_database = []
+
     def __init__(self, pet_ID, name, gender, species, race, age, health_status):
         self.pet_ID = pet_ID
         self.name = name
@@ -22,14 +23,24 @@ class Pet:
         print(f"Age             : {self.age}")
         print(f"Health Status   : {self.health_status}")
         
-        if self.Owner:
+        if self.Owner != None:
             owner_name = self.Owner.name
         else:
             owner_name = "None"
+            
+        if self.AssignedDoctor != None:
+            doctor_name = self.AssignedDoctor.name
+        else:
+            doctor_name = "None"
+            
+        if self.Room != None:
+            room_name = self.Room.name
+        else:
+            room_name = "None"
         
-        print(f"Owner   : {self.Owner}")
-        print(f"Doctor  : {self.AssignedDoctor}")
-        print(f"Room    : {self.Room}")
+        print(f"Owner   : {owner_name}")
+        print(f"Doctor  : {doctor_name}")
+        print(f"Room    : {room_name}")
         print("---------------------------")
 
     def tambah_data(self):
@@ -44,7 +55,7 @@ class Pet:
                 return
         print(f"[Gagal] Hewan dengan ID '{target_ID}' tidak ditemukan.")
 
-    def hapus_data(cls.pet_database, target_ID):
+    def hapus_data(cls, target_ID):
         for pet in cls.pet_database:
             if pet.pet_ID == target_ID:
                 cls.pet_database.remove(pet)
@@ -52,8 +63,11 @@ class Pet:
                 return
         print(f"[Gagal] Hewan dengan ID '{target_ID}' tidak ditemukan.")
 
-    def set_doctor(self):
-        self.AssignedDoctor = Doctor.name
+    def set_doctor(self, doctor):
+        self.AssignedDoctor = doctor
 
-    def set_room(self):
-        self.Room = Room.name
+    def set_room(self, room):
+        self.Room = room
+        
+    def set_owner(self, owner):
+        self.Owner = owner
