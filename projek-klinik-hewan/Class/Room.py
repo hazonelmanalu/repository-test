@@ -20,3 +20,23 @@ class Room:
         print(f"Room Status {self.name}: Occupied {len(self.patients)}/{self.capacity}")
         for pet in self.patients:
             print(f"- {pet.name}")
+
+# CLASS TEST
+if __name__ == "__main__":
+    # INSTANCE OF CLASS
+    Room1 = Room("R001", "Kitty Room", 200000, 5, "Cat")
+    Room1.info()
+
+    # SETTING A PATIENTS
+    from Pet import Pet
+    Pet1 = Pet("123", "Kitty", "Female", "Cat", "Anggora", 3, None)
+    Pet2 = Pet("124", "Dante", "Male", "Dog", "Kintamani", 4, None)
+    Room1.patients.append(Pet1)
+    Room1.patients.append(Pet2)
+
+    # CHECK OCCUPANCIES
+    print("=" * 10 + " (Patients Info) " + "=" * 10)
+    number = 0
+    for patient in Room1.patients:
+        number += 1
+        print(f"Patient {number}: {patient.name}")
