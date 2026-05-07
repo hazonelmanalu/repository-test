@@ -1,12 +1,12 @@
 class Doctor:
-    def __init__(self, doctor_ID, name, gender, specialty, patient_log, patient_list, tariff):
+    def __init__(self, doctor_ID, name, gender, specialty, patient_log, tariff):
         self.doctor_ID = doctor_ID
         self.name = name
         self.gender = gender
         self.specialty = specialty
         self.patient_log = patient_log
-        self.patient_list = patient_list
         self.tariff = tariff
+        self.patient_list = {}
 
     def info(self):
         print("| - - - - - - - - - |\n")
@@ -17,67 +17,61 @@ class Doctor:
         print("Tariff: ", self.tariff)
         print("\n | - - - - - - - - - |")
 
-    def update_data(self):
-
-        if self.name != doctor_name_input:
-            self.name = doctor_name_input
-        elif self.name == doctor_name_input:
-            print("Name input is the same with the old name")
+    def update_data(self, 
+                    name, 
+                    doctor_ID, 
+                    gender, 
+                    specialty, 
+                    tariff):
+        
+        if not name.isalpha():
+            print("Input name is invalid! \n" \
+            "The name couldn't contains any numbers!")
         else:
-            print("Error! Input is invalid!")
+            self.name = name
 
-        if self.doctor_ID != doctor_ID_input:
-            self.doctor_ID = doctor_ID_input
-        elif self.doctor_ID == doctor_ID_input:
-            print("ID input is the same with the old ID!")
+        if not doctor_ID.isdigit():
+            print("Input ID is invalid! \n"
+                  "Please input the ID in numbers!")
         else:
-            print("Error! Input is invalid!")
+            self.doctor_ID = doctor_ID
 
-        if self.gender != doctor_gender_input:
-            self.gender = doctor_gender_input
-        elif self.gender == doctor_gender_input:
-            print("Gender input is the same with the old gender!")
+        if gender.lower() not in ["female", "male"]:
+            print("Input gender is invalid! \n" \
+            "Please input 'Female' or 'Male'!")
         else:
-            print("Error! Input is invalid!")
+            self.gender = gender
 
-        if self.specialty != doctor_specialty_input:
-            self.specialty = doctor_specialty_input
-        elif self.specialty == doctor_specialty_input:
-            print("Field specialty input is the same with the old field specialty!")
+        if not specialty.lower() not in ["dog", 
+                                         "cat", 
+                                         "bird", 
+                                         "rabbit", 
+                                         "hamster"]:
+            print("Input specialty is invalid! \n" \
+            "Please input 'dog', 'cat', 'bird', 'rabbit', and 'hamster'!")
         else:
-            print("Error! Input is invalid!")
+            self.specialty = specialty
 
-        if self.tariff != doctor_tariff_input:
-            self.tariff = doctor_tariff_input
-        elif self.tariff == doctor_tariff_input:
-            print("Tariff input is the same with the old tariff!")
+        if not tariff.isdigit() or len(tariff) > 7 :
+            print("Input tariff is invalid! \n" \
+            "Please input in numbers and cannot be higher than 9.999.999!")
         else:
-            print("Error! Input is invalid!")
+            self.tariff = tariff
+        
     
-    def pet_check(pet.health_status):
-        pet.health_status = pet_status_input
-        if pet.health_status == 1:
-            pet.health_status == "Health"
-            return
-        elif pet.health_status == 2:
-            pet.health_status == "Sick"
-            return
-        elif pet.health_status == 3:
-            pet.health_status == "Dead"
-            return
+    def pet_check(self, pet, pet_status_number):
+        
+        pet_status = {"1" : "Healthy",
+                      "2" : "Sick",
+                      "3" : "Dead"}
+
+        if pet_status_number.digit() and pet_status_number in ["1", "2", "3"]:
+            pet.health_status = pet_status[pet_status_number]
+
         else:
             print("Input is invalid!")
 
-
-#INI UNTUK DATABASE PATIENT LIST
-patient_data = {}
-Patients = ["Patient1", "Patient2", "Patient3"]
-#INI UNTUK INPUT DAN UPDATE KE PATIENT LIST
-for Patient in Patients:
-    pat_data: input(f"Input the data for {Patient}: ")
-    patient_data[Patient] = pat_data
-
-    def patient_info(pet.name, pet.pet_ID, pet.species, pet.race, pet.gender, pet.age, pet.health_status):
+    def patient_info(pet):
         print("| - - - - - - - - - |\n")
         print("Pet Name: ", pet.name)
         print("Pet ID: ", pet.pet_ID)
@@ -87,3 +81,7 @@ for Patient in Patients:
         print("Pet Age: ", pet.age)
         print("Pet Health Status", pet.health_status)
         print("\n | - - - - - - - - - |")
+
+    def add_to_patient_list(self, pet):
+        self.patient_list[pet.pet_ID] = pet
+        print(f"Pasien {pet.name} telah terdaftar di bawah Dokter {self.name}.")
