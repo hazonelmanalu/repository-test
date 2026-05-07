@@ -71,3 +71,29 @@ class Pet:
         
     def set_owner(self, owner):
         self.Owner = owner
+
+# CLASS TEST
+if __name__ == "__main__":
+    # INSTANCE OF CLASS
+    print("=" * 20 + " (Pet Info) " + "=" * 20)
+    Pet1 = Pet("123", "Kitty", "Female", "Cat", "Anggora", 3, None)
+    Pet1.info()
+
+    # SET OWNER
+    from Owner import Owner
+    Owner1 = Owner("O001", "Andre", "Male", "08989557173", Pet1)
+    Pet1.set_owner(Owner1)
+
+    # SET DOCTOR
+    from Doctor import Doctor
+    Doctor1 = Doctor("123", "Dr. Tirta", "Male", "Dog", 1000000)
+    Pet1.set_doctor(Doctor1)
+
+    # SET ROOM
+    from Room import Room
+    Room1 = Room("R001", "Kitty Room", 100000, 5, "Cat")
+    Pet1.set_room(Room1)
+
+    # CHECKING THE INFO AGAIN AFTER SETTING OWNER, DOCTOR, AND ROOM
+    print("=" * 10 + " (Pet Info After Some Settings) " + "=" * 10)
+    Pet1.info()

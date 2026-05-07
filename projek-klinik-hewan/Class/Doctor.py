@@ -1,10 +1,10 @@
 class Doctor:
-    def __init__(self, doctor_ID, name, gender, specialty, patient_log, tariff):
+    def __init__(self, doctor_ID, name, gender, specialty, tariff):
         self.doctor_ID = doctor_ID
         self.name = name
         self.gender = gender
         self.specialty = specialty
-        self.patient_log = patient_log
+        self.patient_log = {}
         self.tariff = tariff
         self.patient_list = {}
 
@@ -71,7 +71,7 @@ class Doctor:
         else:
             print("Input is invalid!")
 
-    def patient_info(pet):
+    def patient_info(self, pet):
         print("| - - - - - - - - - |\n")
         print("Pet Name: ", pet.name)
         print("Pet ID: ", pet.pet_ID)
@@ -85,3 +85,17 @@ class Doctor:
     def add_to_patient_list(self, pet):
         self.patient_list[pet.pet_ID] = pet
         print(f"Pasien {pet.name} telah terdaftar di bawah Dokter {self.name}.")
+
+# CLASS TEST
+if __name__ == "__main__":
+    # INSTANCE OF CLASS
+    print("=" * 20 + " (Doctor Info) " + "=" * 20)
+    Doctor1 = Doctor("123", "Dr. Tirta", "Male", "Dog", 1000000)
+    Doctor1.info()
+
+    # SET PATIENT TO DOCTOR
+    print("=" * 20 + " (Patient Info) " + "=" * 20)
+    from Pet import Pet
+    Pet1 = Pet("123", "Kitty", "Female", "Cat", "Anggora", 3, None)
+    Doctor1.add_to_patient_list(Pet1)
+    Doctor1.patient_info(Pet1)
